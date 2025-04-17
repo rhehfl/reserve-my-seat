@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="./main.js"></script>
+    <script defer src="./page.js"></script>
+    <link rel="stylesheet" href="./style.css"></link>
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1 class="title">인덕대 도서관 예약</h1>
+      <form id="user-form" class="main-form"> 
+        <div class="form-container">
+          <label>학번을 입력해주세요<label>
+          <input type="text" id="student-number" placeholder="학번" />
+        </div>
+        <button class="btn-submit" id="save">학번 저장</button>
+      </form>
+      <form id="seat-form" class="main-form active">
+        <span id="current-user">현재 학번:</span>
+        <div class="form-container">
+          <label>좌석번호를 입력해주세요</label>
+          <input type="text" id="seat-number" placeholder="좌석번호" />
+        </div>
+        <button class="btn-submit" id="submit">자리예약</button>
+      </form>
+    </main>  
+  </body>
+</html>
