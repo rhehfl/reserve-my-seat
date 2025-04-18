@@ -197,16 +197,39 @@ const data = {
 const api = 'http://localhost:4000/api/reserve/';
 const seat = document.querySelector('#seat-number');
 const submitButton = document.querySelector('#submit');
+const cancelButton = document.querySelector('#submit-cancel');
 const saveButton = document.querySelector('#save');
 const messageLabel = document.querySelector('#message');
 const currentUser = document.querySelector('#current-user');
+
 if (localStorage.getItem('student-number')) {
   console.log(localStorage.getItem('student-number'));
   currentUser.innerHTML += localStorage.getItem('student-number');
 }
+
 submitButton.addEventListener('click', async (e) => {
   e.preventDefault();
-  const api = 'http://localhost:4000/api/reserve';
+  const api = '/api/reserve';
+  const studentNum = localStorage.getItem('student-number');
+  const params = new URLSearchParams({
+    seatId: data[seat.value],
+    userId: studentNum,
+    userPass: '1234',
+  });
+  let msg = '';
+  fetch(`${api}?${params}`)
+    .then((res) => res.json())
+    .then((data) => {
+      msg = data.message;
+      messageLabel.innerHTML = msg;
+      console.log(data);
+    })
+    .catch((err) => console.error(err));
+});
+
+cancelButton.addEventListener('click', async (e) => {
+  e.preventDefault();
+  const api = '/api/cancel';
   const studentNum = localStorage.getItem('student-number');
   const params = new URLSearchParams({
     seatId: data[seat.value],
