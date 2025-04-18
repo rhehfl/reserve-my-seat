@@ -198,26 +198,28 @@ const api = 'http://localhost:4000/api/reserve/';
 const seat = document.querySelector('#seat-number');
 const submitButton = document.querySelector('#submit');
 const saveButton = document.querySelector('#save');
-
+const messageLabel = document.querySelector('#message');
+const currentUser = document.querySelector('#current-user');
+if (localStorage.getItem('student-number')) {
+  console.log(localStorage.getItem('student-number'));
+  currentUser.innerHTML += localStorage.getItem('student-number');
+}
 submitButton.addEventListener('click', async (e) => {
   e.preventDefault();
   const api = 'http://localhost:4000/api/reserve';
-
+  const studentNum = localStorage.getItem('student-number');
   const params = new URLSearchParams({
-    seatId: '123',
-    userId: 'abcd',
+    seatId: data[seat.value],
+    userId: studentNum,
     userPass: '1234',
   });
-
-  const studentNum = localStorage.getItem('student-number');
-  const url =
-    api +
-    `&SeatId=${
-      data[seat.value]
-    }&UserId=${studentNum}&DeviceName=desktop&Kiosk=false&Guid=cstk5uezyqs4yinnybn1zryc&UserPass=123`;
-
+  let msg = '';
   fetch(`${api}?${params}`)
-    .then((res) => res.text())
-    .then((data) => console.log(data))
+    .then((res) => res.json())
+    .then((data) => {
+      msg = data.message;
+      messageLabel.innerHTML = msg;
+      console.log(data);
+    })
     .catch((err) => console.error(err));
 });

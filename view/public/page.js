@@ -9,7 +9,6 @@ if (!localStorage.getItem('student-number')) {
   student.value = localStorage.getItem('student-number');
   saveButton.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log(123123);
     localStorage.setItem('student-number', student.value);
     userForm.classList.add('active');
     seatForm.classList.remove('active');

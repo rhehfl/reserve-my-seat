@@ -67,6 +67,26 @@ body {
   box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
 }
 
+.btn-submit-cancel {
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #c92e2e;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn-submit-cancel:hover {
+  background-color: #741829;
+}
+
+.btn-submit-cancel:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(116, 11, 11, 0.5);
+}
 .active {
   display: none;
 }

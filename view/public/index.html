@@ -6,7 +6,7 @@
     <script defer src="./main.js"></script>
     <script defer src="./page.js"></script>
     <link rel="stylesheet" href="./style.css"></link>
-    <title>Document</title>
+    <title>인덕대 도서관 자리예약</title>
   </head>
   <body>
     <main class="container">
@@ -18,6 +18,7 @@
         </div>
         <button class="btn-submit" id="save">학번 저장</button>
       </form>
+    
       <form id="seat-form" class="main-form active">
         <span id="current-user">현재 학번:</span>
         <div class="form-container">
@@ -25,7 +26,9 @@
           <input type="text" id="seat-number" placeholder="좌석번호" />
         </div>
         <button class="btn-submit" id="submit">자리예약</button>
+        <button class="btn-submit-cancel" id="submit">배정취소</button>
       </form>
+      <label id="message"><label>
     </main>  
   </body>
 </html>
